@@ -28,16 +28,16 @@ Note: BootMovies does not stream movies. It only displays movie information retr
 -- Installation 
 1) Clone the repository.
    Open git bash in folder where you want to clone the repository.
-   Run the following command:-
+   Run the following command: 
    git clone https://github.com/your-username/bootmoves.git
 
 2) Install the dependencies.
-   Run following command in your IDE:-
-   npm install
-   npm i nodemon
+   Run following command one by one in your IDE:
+  a) npm install
+  b) npm i nodemon
 
 4) Run the server.
-   Run the following command in your IDE:-
+   Run the following command in your IDE:
    nodemon app.js 
 
 
