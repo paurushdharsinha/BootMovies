@@ -34,10 +34,11 @@ Note: BootMovies does not stream movies. It only displays movie information retr
 2) Install the dependencies.
    Run following command in your IDE:-
    npm install
+   npm i nodemon
 
-3) Run the server.
-   Then run the following command in your IDE:-
-   node app.js 
+4) Run the server.
+   Run the following command in your IDE:-
+   nodemon app.js 
 
 
 -- License
