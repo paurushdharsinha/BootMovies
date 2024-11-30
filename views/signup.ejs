@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Signup</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .signup-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            width: 350px;
+        }
+
+        /* form styles */
+        .signup-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ede213;
+            text-decoration-line: underline;
+            text-decoration: dashed;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .form-group input:focus {
+            border-color: #fafa2b;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #ede213;
+            color: black;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .signup-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        .profile-pic-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="signup-container">
+
+        <h1> Sign Up </h1>
+
+        <% if (typeof error !== 'undefined') { %>
+            <div class="error-message"><%= error %></div>
+        <% } %>
+
+
+        <form action="/create" method="post" class="signup-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="10" required>
+            </div>
+            
+            <button type="submit" class="submit-btn"> Create User </button>
+
+            
+        </form>
+    </div>
+    <script>
+        window.onload = function() {
+            const errorMessage = document.getElementById('errorMessage');
+            const form = document.getElementById('signupForm');
+            
+            if (errorMessage) {
+                setTimeout(function() {
+                    errorMessage.style.display = 'none'
+                    form.reset();  
+                }, 5000)
+            }
+        }
+    </script>
+</body>
+
+
+
+</html>

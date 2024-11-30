@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='./stylesheet/login.css'>
+    <link rel="icon" type="image/x-icon" href="./images/icons8-movie-48.png">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sign-in-box">
+            <h1> Login Your Account </h1>
+
+            <form id="signInForm" method="post" action="/login">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" name="password" required>
+                </div>
+
+                <input type="submit" class="sign-in-btn" value="Sign In">
+            </form>
+
+
+            <div class="sign-in-footer">
+
+                <p> New to BootMovies? <a href="/signup">Sign Up now</a></p>
+
+
+                <p class="small-text">This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+
+                    <a href="#">Learn more</a> </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./javascript/login.js"> </script>
+
+</body>
+
+</html>

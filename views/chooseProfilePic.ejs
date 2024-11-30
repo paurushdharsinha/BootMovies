@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Profile Picture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #ede213;
+            margin-bottom: 20px;
+        }
+
+        .profile-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .selected {
+            border-color: #4CAF50;
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Select Your Profile Picture</h2>
+    <form action="/choose-profile-pic" method="POST">
+        <div class="profile-grid">
+            <% profilePictures.forEach(function(picture) { %>
+                <label>
+                    <input type="radio" name="profilePicture" value="<%= picture %>" style="display: none;">
+                    <img src="<%= picture %>" class="profile-pic" onclick="selectPicture(this)">
+                </label>
+                <% }); %>
+        </div>
+        <button type="submit">Save Profile Picture</button>
+    </form>
+
+    <script>
+        function selectPicture(element) {
+            document.querySelectorAll('.profile-pic').forEach(function (pic) {
+                pic.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+
+</html>

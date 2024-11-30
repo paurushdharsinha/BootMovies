@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <style>
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ede213;
+            text-decoration-line: underline;
+            text-decoration: dashed;
+        }
+
+        .profile-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #fef600;
+            text-align: left;
+        }
+
+        .profile-container input[type="text"],
+        .profile-container input[type="email"],
+        .profile-container input[type="number"],
+        .profile-container input[type="password"] {
+            width: 98%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #1e1e1e;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .profile-container button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .profile-container form:last-child button[type="submit"] {
+            margin-top: 20px;
+            background-color: #dc3545;
+        }
+
+        .profile-container form:last-child button[type="submit"]:hover {
+            background-color: #c82333;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .payment-button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .payment-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <img src="<%= profilePicture %>" alt="Profile" class="profile-pic" onclick="window.location.href='/choose-profile-pic'">
+
+        <form action="/update-profile" method="POST">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<%= username %>" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<%= email %>" required>
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" value="<%= age %>" required>
+            </div>
+            <div>
+                <label for="password">New Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <button type="submit">Update Profile</button>
+        </form>
+
+        <form action="/payment" method="GET">
+            <button type="submit" class="payment-button">Proceed to Payment</button>
+        </form>
+
+        <form action="/logout" method="GET">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+
+</html>

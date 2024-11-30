@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .payment-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ede213;
+            text-decoration-line: underline;
+            text-decoration: dashed;
+        }
+
+        .subscription-options {
+            margin-bottom: 20px;
+        }
+
+        .subscription-options label {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .subscription-options select {
+            padding: 10px;
+            width: 100%;
+        }
+
+        .qr-code {
+            margin-top: 20px;
+        }
+
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease, z-index 0s;
+        }
+
+        .qr-code img.enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            z-index: 1000;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+
+        .upi-text {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-container">
+        <h2>Select Your Subscription Plan</h2>
+        <form action="/payment-process" method="POST">
+            <div class="subscription-options">
+                <label for="duration">Choose a plan:</label>
+                <select name="duration" id="duration" required>
+                    <option value="1-month">1 Month - ₹99</option>
+                    <option value="3-months">3 Months - ₹199</option>
+                    <option value="6-months">6 Months - ₹499</option>
+                    <option value="1-year">1 Year - ₹999</option>
+                </select>
+            </div>
+
+            <div class="qr-code">
+                <h3>Scan to Pay</h3>
+                <img src="/images/payment-qr.png" alt="QR Code">
+                <p class="upi-text">Or pay using UPI: <strong>paurushdhar@axl</strong></p>
+            </div>
+
+            <button type="submit">Complete Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const qrImage = document.querySelector(".qr-code img");
+
+            qrImage.addEventListener("click", function () {
+                if (this.classList.contains("enlarged")) {
+                    this.classList.remove("enlarged");
+                } else {
+                    this.classList.add("enlarged");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

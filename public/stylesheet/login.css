@@ -1,0 +1,112 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sign-in-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px 60px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.sign-in-box h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ede213;
+    text-decoration-line: underline;
+    text-decoration: dashed;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    border-color: #fafa2b;
+    outline: none;
+}
+
+.sign-in-btn {
+    width: 100%;
+    background-color: #ede213;
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.sign-in-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.sign-in-help a {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.sign-in-footer {
+    margin-top: 20px;
+}
+
+.sign-in-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #737373;
+    margin-top: 10px;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.results-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.movie-item {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+    color: white;
+}
